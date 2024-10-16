@@ -7,7 +7,31 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Account\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Account\Register.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Account\SignUp.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\Account\Login.cshtml" />
     </ItemGroup>
 
 </Project>

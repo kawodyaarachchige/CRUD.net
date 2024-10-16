@@ -18,6 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/Views/Items/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/Views/Items/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/Views/Items/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/Views/Items/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

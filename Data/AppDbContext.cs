@@ -9,5 +9,6 @@ namespace MyFirstApp.Models
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Item> Items { get; set; }
     }
 }
