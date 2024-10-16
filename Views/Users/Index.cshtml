@@ -1,0 +1,29 @@
+@model IEnumerable<MyFirstApp.Models.User>
+
+<h1>Users</h1>
+<a href="@Url.Action("Create", "Users")">Create New User</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Email</td>
+            <td>@user.Age</td>
+            <td>
+                <a href="@Url.Action("Edit", "Users", new { id = user.Id })">Edit</a>
+                <a href="@Url.Action("Delete", "Users", new { id = user.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
