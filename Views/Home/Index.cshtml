@@ -1,0 +1,24 @@
+@model MyFirstApp.Models.DashboardViewModel
+
+<div class="container mt-4">
+    <h1>Dashboard</h1>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Customer Count</h5>
+                    <p class="card-text">@Model.CustomerCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Item Count</h5>
+                    <p class="card-text">@Model.ItemCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

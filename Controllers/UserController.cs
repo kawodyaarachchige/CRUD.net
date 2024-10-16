@@ -23,16 +23,16 @@ public class UsersController : Controller
     // POST: Users/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Name,Email,Age")] User user)
+    public async Task<IActionResult> Create([Bind("Name,Email,Age")] UserModel userModel)
     {
         if (ModelState.IsValid)
         {
-            _context.Add(user);
+            _context.Add(userModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        return View(user);
+        return View(userModel);
     }
 
     // GET: Users/Edit/5
@@ -50,9 +50,9 @@ public class UsersController : Controller
     // POST: Users/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Age")] User user)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Age")] UserModel userModel)
     {
-        if (id != user.Id)
+        if (id != userModel.Id)
         {
             return NotFound();
         }
@@ -61,12 +61,12 @@ public class UsersController : Controller
         {
             try
             {
-                _context.Update(user);
+                _context.Update(userModel);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(user.Id))
+                if (!UserExists(userModel.Id))
                 {
                     return NotFound();
                 }
@@ -79,7 +79,7 @@ public class UsersController : Controller
             return RedirectToAction(nameof(Index));
         }
 
-        return View(user);
+        return View(userModel);
     }
 
 // GET: Users/Delete/5
