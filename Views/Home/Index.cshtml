@@ -1,22 +1,78 @@
 @model MyFirstApp.Models.DashboardViewModel
 
 <div class="container mt-4">
-    <h1>Dashboard</h1>
+    <h1 class="text-center mb-4">Dashboard</h1>
 
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card text-white bg-primary">
-                <div class="card-body">
+            <div class="card text-white bg-primary custom-card shadow">
+                <div class="card-body text-center">
                     <h5 class="card-title">Customer Count</h5>
-                    <p class="card-text">@Model.CustomerCount</p>
+                    <p class="card-text display-4">@Model.CustomerCount</p>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card text-white bg-success">
-                <div class="card-body">
+            <div class="card text-white bg-success custom-card shadow">
+                <div class="card-body text-center">
                     <h5 class="card-title">Item Count</h5>
-                    <p class="card-text">@Model.ItemCount</p>
+                    <p class="card-text display-4">@Model.ItemCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4">Most Sold Items</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="~/images/choco.png" class="card-img-top" alt="Most Sold Item 1" style="height: 150px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Item Name 1</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="~/images/choco.png" class="card-img-top" alt="Most Sold Item 2" style="height: 150px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Item Name 2</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="~/images/choco.png" class="card-img-top" alt="Most Sold Item 3" style="height: 150px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Item Name 3</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4">Discounted Items</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="~/images/kitkat.webp" class="card-img-top" alt="Discounted Item 1" style="height: 150px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Discounted Item 1</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="~/images/kitkat.webp" class="card-img-top" alt="Discounted Item 2" style="height: 150px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Discounted Item 2</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="~/images/kitkat.webp" class="card-img-top" alt="Discounted Item 3" style="height: 150px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Discounted Item 3</h5>
                 </div>
             </div>
         </div>
