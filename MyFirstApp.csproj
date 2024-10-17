@@ -28,6 +28,8 @@
       <_ContentIncludedByDefault Remove="Views\Admin\Delete.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Admin\Edit.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Admin\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Orders\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>

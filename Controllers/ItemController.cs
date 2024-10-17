@@ -73,5 +73,18 @@ namespace MyFirstApp.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        // GET: Items/Details/{id}
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var item = await _context.Items.FindAsync(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            return Json(new { Price = item.Price });
+        }
     }
 }
