@@ -9,7 +9,7 @@ namespace MyFirstApp.Models
         public DbSet<UserModel> Users { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<OrderModel> Orders { get; set; }
-        public DbSet<OrderItemodel>OrderItems { get; set; }
+        public DbSet<OrderItemModel>OrderItems { get; set; }
         
        
     }

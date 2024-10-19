@@ -1,7 +1,7 @@
 @model MyFirstApp.Models.OrderModel
 
 @{
-    ViewData["Title"] = "Create Order";
+ViewData["Title"] = "Create Order";
 }
 
 <h2>Create Order</h2>
@@ -12,7 +12,7 @@
         <select name="userId" id="userId" class="form-control">
             @foreach (var user in ViewBag.Users)
             {
-                <option value="@user.Id">@user.Name</option>
+            <option value="@user.Id">@user.Name</option>
             }
         </select>
     </div>
@@ -21,18 +21,18 @@
         <h4>Select Items:</h4>
         @for (int i = 0; i < ViewBag.Items.Count; i++)
         {
-            var item = ViewBag.Items[i];
+        var item = ViewBag.Items[i];
 
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="itemIds" value="@item.Id" id="item-@i" />
-                <label class="form-check-label" for="item-@i">
-                    @item.Name - Price: @item.Price.ToString("C")
-                </label>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="itemIds" value="@item.Id" id="item-@i" />
+            <label class="form-check-label" for="item-@i">
+                @item.Name - Price: @item.Price.ToString("C")
+            </label>
 
-                <label for="quantity-@i">Quantity:</label>
-                <input type="number" class="form-control" name="quantities" id="quantity-@i" min="1" />
-            </div>
-            <br />
+            <label for="quantity-@i">Quantity:</label>
+            <input type="number" class="form-control" name="quantities" id="quantity-@i" min="1"  />
+        </div>
+        <br />
         }
     </div>
 

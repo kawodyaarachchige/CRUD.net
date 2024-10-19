@@ -8,6 +8,6 @@ public class OrderModel
         public UserModel User { get; set; }
         public decimal TotalAmount { get; set; }
         public DateTime OrderDate { get; set; }
-        public ICollection<OrderItemodel> OrderItems { get; set; }
+        public ICollection<OrderItemModel> OrderItems { get; set; }
 
 }
