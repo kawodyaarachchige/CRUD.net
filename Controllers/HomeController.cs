@@ -17,9 +17,12 @@ public class HomeController : Controller
         var viewModel = new DashboardViewModel
         {
             CustomerCount = await _context.Users.CountAsync(),
-            ItemCount = await _context.Items.CountAsync()
+            ItemCount = await _context.Items.CountAsync(),
+            OrderCount = await _context.Orders.CountAsync()
         };
 
         return View(viewModel);
     }
+ 
+
 }

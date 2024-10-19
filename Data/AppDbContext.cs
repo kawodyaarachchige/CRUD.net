@@ -6,6 +6,7 @@ namespace MyFirstApp.Models
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
+        public DbSet<adminModel> Admins { get; set; }
         public DbSet<UserModel> Users { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<OrderModel> Orders { get; set; }
