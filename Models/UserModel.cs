@@ -17,5 +17,8 @@ namespace MyFirstApp.Models
         [Required(ErrorMessage = "Age is required.")]
         [Range(1, 120, ErrorMessage = "Age must be between 1 and 120.")]
         public int Age { get; set; }
+        
+        public ICollection<OrderModel> Orders { get; set; }
+        
     }
 }

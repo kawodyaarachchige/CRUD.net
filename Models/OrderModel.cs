@@ -1,41 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+namespace MyFirstApp.Models;
 
-namespace MyFirstApp.Models
+public class OrderModel
 {
-    public class Order
-    {
-        public int OrderId { get; set; }
 
-        public int CustomerId { get; set; }
-
-        [DataType(DataType.Date)]
-        public DateTime OrderDate { get; set; } = DateTime.Now;
-
-        [Required]
-        public decimal Amount { get; set; }
-
-        [Required]
-        public decimal Total { get; set; }
-
-        public virtual UserModel Customer { get; set; }
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
-    }
-
-    public class OrderItem
-    {
-        public int OrderItemId { get; set; }
-
-        public int OrderId { get; set; }
-
-        public int ItemId { get; set; }
-
-        public int Quantity { get; set; }
-
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public UserModel User { get; set; }
         public decimal TotalAmount { get; set; }
+        public DateTime OrderDate { get; set; }
+        public ICollection<OrderItemodel> OrderItems { get; set; }
 
-        public virtual Order Order { get; set; }
-        public virtual Item Item { get; set; }
-    }
 }

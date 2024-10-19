@@ -1,35 +1,40 @@
-@model MyFirstApp.Models.Order
+@model MyFirstApp.Models.OrderModel
+
 @{
-ViewBag.Title = "Create Order";
+    ViewData["Title"] = "Create Order";
 }
 
 <h2>Create Order</h2>
 
 <form asp-action="Create" method="post">
-    <div>
-        <label for="CustomerId">Customer:</label>
-        <select asp-for="CustomerId" asp-items="@(new SelectList(ViewBag.Customers, "Id", "Name"))"></select>
+    <div class="form-group">
+        <label for="userId">Select Customer:</label>
+        <select name="userId" id="userId" class="form-control">
+            @foreach (var user in ViewBag.Users)
+            {
+                <option value="@user.Id">@user.Name</option>
+            }
+        </select>
     </div>
 
-    <div id="itemContainer">
-        <div>
-            <select name="orderItems[0].ItemId" onchange="calculateTotal(0)">
-                <option value="">Select Item</option>
-                @foreach (var item in ViewBag.Items)
-                {
-                <option value="@item.Id">@item.Name</option>
-                }
-            </select>
-            <input type="number" name="orderItems[0].Quantity" placeholder="Quantity" oninput="calculateTotal(0)" />
-            <input type="text" name="orderItems[0].TotalAmount" placeholder="Total Amount" readonly />
-        </div>
+    <div class="form-group">
+        <h4>Select Items:</h4>
+        @for (int i = 0; i < ViewBag.Items.Count; i++)
+        {
+            var item = ViewBag.Items[i];
+
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="itemIds" value="@item.Id" id="item-@i" />
+                <label class="form-check-label" for="item-@i">
+                    @item.Name - Price: @item.Price.ToString("C")
+                </label>
+
+                <label for="quantity-@i">Quantity:</label>
+                <input type="number" class="form-control" name="quantities" id="quantity-@i" min="1" />
+            </div>
+            <br />
+        }
     </div>
 
-    <button type="button" onclick="addItem()">Add Item</button>
-
-    <div>
-        <button type="submit">Place Order</button>
-    </div>
+    <button type="submit" class="btn btn-primary">Place Order</button>
 </form>
-
-<script src="~/js/site.js"></script> <!-- Add this line -->

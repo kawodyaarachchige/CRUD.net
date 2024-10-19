@@ -5,121 +5,53 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-public class UsersController : Controller
-{
+public class UsersController : Controller {
     private readonly AppDbContext _context;
 
-    public UsersController(AppDbContext context)
-    {
+    public UsersController(AppDbContext context) {
         _context = context;
     }
 
-    // GET: Users/Create
-    public IActionResult Create()
-    {
+    public IActionResult Index() {
+        var users = _context.Users.ToList();
+        return View(users);
+    }
+
+    public IActionResult Create() {
         return View();
     }
 
-    // POST: Users/Create
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Name,Email,Age")] UserModel userModel)
-    {
-        if (ModelState.IsValid)
-        {
-            _context.Add(userModel);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        return View(userModel);
+    public IActionResult Create(UserModel user) {
+        _context.Users.Add(user);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
 
-    // GET: Users/Edit/5
-    public async Task<IActionResult> Edit(int id)
-    {
-        var user = await _context.Users.FindAsync(id);
-        if (user == null)
-        {
-            return NotFound();
-        }
-
+    public IActionResult Edit(int id) {
+        var user = _context.Users.Find(id);
+        if (user == null) return NotFound();
         return View(user);
     }
 
-    // POST: Users/Edit/5
     [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Age")] UserModel userModel)
-    {
-        if (id != userModel.Id)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
-            {
-                _context.Update(userModel);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(userModel.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        return View(userModel);
+    public IActionResult Edit(UserModel user) {
+        _context.Users.Update(user);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
 
-// GET: Users/Delete/5
-    public async Task<IActionResult> Delete(int id)
-    {
-        var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
-        if (user == null)
-        {
-            return NotFound(); // Make sure this returns a 404 if user doesn't exist
-        }
-
-        return View(user); // Pass the user model to the view
+    public IActionResult Delete(int id) {
+        var user = _context.Users.Find(id);
+        if (user == null) return NotFound();
+        return View(user);
     }
 
-    [HttpPost, ActionName("DeleteUser")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteUser(int id)
-    {
-        var user = await _context.Users.FindAsync(id);
-        if (user == null)
-        {
-            return NotFound(); 
-        }
-
+    [HttpPost, ActionName("Delete")]
+    public IActionResult DeleteConfirmed(int id) {
+        var user = _context.Users.Find(id);
         _context.Users.Remove(user);
-        await _context.SaveChangesAsync(); 
-
-        return RedirectToAction(nameof(Index)); 
-    }
-    
-    // Helper method to check if a user exists
-    private bool UserExists(int id)
-    {
-        return _context.Users.Any(e => e.Id == id);
-    }
-
-    // GET: Users
-    public IActionResult Index()
-    {
-        var users = _context.Users.ToList(); // Fetch all users
-        return View(users);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
 }
