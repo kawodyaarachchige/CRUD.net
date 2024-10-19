@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyFirstApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyFirstApp.Controllers
 {
@@ -31,8 +35,9 @@ namespace MyFirstApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int userId, List<int> itemIds, List<int> quantities)
+        public async Task<IActionResult> CreateOrder(int userId, List<int> itemIds, List<int> quantities)
         {
+            // Validate input
             if (itemIds == null || quantities == null || itemIds.Count == 0 || quantities.Count == 0)
             {
                 ModelState.AddModelError("", "Please select at least one item.");
@@ -43,47 +48,50 @@ namespace MyFirstApp.Controllers
             {
                 UserId = userId,
                 OrderDate = DateTime.Now,
-                TotalAmount = 0
+                TotalAmount = 0,
+                OrderItems = new List<OrderItemModel>()
             };
-
-            var orderItems = new List<OrderItemModel>();
 
             for (int i = 0; i < itemIds.Count; i++)
             {
-                var item = _context.Items.Find(itemIds[i]);
+                var item = await _context.Items.FindAsync(itemIds[i]);
                 if (item != null && quantities[i] > 0)
                 {
-                    var orderItem = new OrderItemModel()
+                    if (item.Quantity >= quantities[i])
                     {
-                        ItemId = item.Id,
-                        Quantity = quantities[i],
-                        Price = item.Price
-                    };
+                        var orderItem = new OrderItemModel()
+                        {
+                            ItemId = item.Id,
+                            Quantity = quantities[i],
+                            Price = item.Price 
+                        };
+                        order.TotalAmount += item.Price * quantities[i];
 
-                    order.TotalAmount += item.Price * quantities[i];
-                    item.Quantity -= quantities[i];
-                    orderItems.Add(orderItem);
+                        item.Quantity -= quantities[i]; 
+                        order.OrderItems.Add(orderItem); 
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", $"Not enough stock for item: {item.Name}");
+                    }
                 }
             }
 
-            if (orderItems.Count == 0)
+            if (!order.OrderItems.Any())
             {
                 ModelState.AddModelError("", "No valid items were selected.");
                 return View();
             }
-
-            _context.Orders.Add(order);
-            _context.SaveChanges();
-
-            foreach (var orderItem in orderItems)
+            
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync(); 
+            
+            foreach (var orderItem in order.OrderItems)
             {
-                orderItem.OrderId = order.Id;
-                _context.OrderItems.Add(orderItem);
+                orderItem.OrderId = order.Id; 
+                await _context.OrderItems.AddAsync(orderItem); 
             }
-
-
-            _context.SaveChanges();
-
+            
             return RedirectToAction("Index");
         }
     }

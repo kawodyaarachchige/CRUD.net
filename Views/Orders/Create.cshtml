@@ -4,9 +4,11 @@
 ViewData["Title"] = "Create Order";
 }
 
-<h2>Create Order</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-<form asp-action="Create" method="post">
+<h2 class="text-center mb-4">Create Order</h2>
+
+<form asp-action="CreateOrder" method="post">
     <div class="form-group">
         <label for="userId">Select Customer:</label>
         <select name="userId" id="userId" class="form-control">
@@ -18,23 +20,89 @@ ViewData["Title"] = "Create Order";
     </div>
 
     <div class="form-group">
-        <h4>Select Items:</h4>
-        @for (int i = 0; i < ViewBag.Items.Count; i++)
-        {
-        var item = ViewBag.Items[i];
-
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="itemIds" value="@item.Id" id="item-@i" />
-            <label class="form-check-label" for="item-@i">
-                @item.Name - Price: @item.Price.ToString("C")
-            </label>
-
-            <label for="quantity-@i">Quantity:</label>
-            <input type="number" class="form-control" name="quantities" id="quantity-@i" min="1"  />
-        </div>
-        <br />
-        }
+        <label for="itemSearch" class="mt-3">Search Items:</label>
+        <input type="text" id="itemSearch" class="form-control" placeholder="Search items..." onkeyup="filterItems()" />
     </div>
 
-    <button type="submit" class="btn btn-primary">Place Order</button>
+    <div class="form-group">
+        <h4>Select Items:</h4>
+        <div class="row" id="itemContainer">
+            @for (int i = 0; i < ViewBag.Items.Count; i++)
+            {
+            var item = ViewBag.Items[i];
+            <div class="col-md-3 col-sm-6 mb-3"> <!-- Changed to 4 cards per row -->
+                <div class="card shadow-sm p-2 bg-light border border-primary hover-shadow">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="font-size: 1.2rem;">@item.Name</h5> <!-- Larger item name -->
+                        <p class="card-text" style="font-size: 0.8rem;">Price: @item.Price.ToString("C")</p> <!-- Smaller price text -->
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="itemIds" value="@item.Id" id="item-@i" />
+                            <label class="form-check-label" for="item-@i">Select Item</label>
+                        </div>
+                        <div class="input-group mt-2 justify-content-center">
+                            <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('quantity-@i', -1)">-</button>
+                            <input type="number" class="form-control" name="quantities" id="quantity-@i" min="1" value="1" style="width: 50px;" />
+                            <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('quantity-@i', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block mt-3">Place Order</button>
 </form>
+
+@section Scripts {
+<script>
+    function changeQuantity(id, increment) {
+        const quantityInput = document.getElementById(id);
+        let currentValue = parseInt(quantityInput.value);
+        currentValue += increment;
+
+        if (currentValue < 1) {
+            currentValue = 1; // Prevents going below 1
+        }
+        quantityInput.value = currentValue;
+    }
+
+    // Function to filter items based on search input
+    function filterItems() {
+        const searchInput = document.getElementById('itemSearch').value.toLowerCase();
+        const items = document.querySelectorAll('#itemContainer .col-md-3'); // Adjusted for 4 cards per row
+        items.forEach(item => {
+            const itemName = item.querySelector('.card-title').textContent.toLowerCase();
+            if (itemName.includes(searchInput)) {
+                item.style.display = ''; // Show item
+            } else {
+                item.style.display = 'none'; // Hide item
+            }
+        });
+    }
+
+    // Optional: Provide real-time feedback on selection
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                alert(`"${this.nextElementSibling.innerText}" added to order!`);
+            }
+        });
+    });
+</script>
+}
+
+<style>
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    }
+
+    .hover-shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+</style>
