@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PBpd7Of1Y9cerUPGN/TwVaeYLyfJL1J8isPFuVSxju8=",
+  "Hash": "y/w74VpmIoZjboDbuKQAdY4IZZXPxbh9p6Phs1Tf1XY=",
   "Source": "MyFirstApp",
   "BasePath": "_content/MyFirstApp",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/candy.png",
+      "SourceId": "MyFirstApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/",
+      "BasePath": "_content/MyFirstApp",
+      "RelativePath": "images/candy.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/candy.png"
     },
     {
       "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/choco.png",

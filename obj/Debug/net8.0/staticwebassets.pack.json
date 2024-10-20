@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/candy.png",
+      "PackagePath": "staticwebassets/images/candy.png"
+    },
+    {
       "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/choco.png",
       "PackagePath": "staticwebassets/images/choco.png"
     },

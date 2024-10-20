@@ -1,8 +1,10 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyFirstApp.Models; 
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MyFirstApp.Controllers
 {
@@ -59,11 +61,31 @@ namespace MyFirstApp.Controllers
             var admin = await _context.Admins.FirstOrDefaultAsync(a => a.Email == email);
             if (admin != null && _passwordHasher.VerifyHashedPassword(admin, admin.PasswordHash, password) == PasswordVerificationResult.Success)
             {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, admin.Email)
+                };
+
+                var claimsIdentity = new ClaimsIdentity(claims, "Login");
+                await HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity));
+
                 return RedirectToAction("Index", "Home"); 
             }
+            // Set error message in ViewBag
+            ViewBag.LoginError = "Invalid email or password.";
+            return View();
 
             ModelState.AddModelError("", "Invalid login attempt.");
             return View();
+            
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();  
+            return RedirectToAction("Login", "Admin");  
+        }
+
+
     }
 }
