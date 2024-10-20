@@ -6,11 +6,11 @@ ViewData["Title"] = "Create Order";
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-<h1 class=" mb-4">Create Order</h1>
+<h1 class="mb-4 text-center" style="color: #ff69b4;">Create Order</h1>
 
 <form asp-action="CreateOrder" method="post">
     <div class="form-group">
-        <label for="userId">Select Customer:</label>
+        <label for="userId" style="font-weight: bold;">Select Customer:</label>
         <select name="userId" id="userId" class="form-control">
             @foreach (var user in ViewBag.Users)
             {
@@ -20,21 +20,21 @@ ViewData["Title"] = "Create Order";
     </div>
 
     <div class="form-group">
-        <label for="itemSearch" class="mt-3">Search Items:</label>
+        <label for="itemSearch" class="mt-3" style="font-weight: bold;">Search Items:</label>
         <input type="text" id="itemSearch" class="form-control" placeholder="Search items..." onkeyup="filterItems()" />
     </div>
 
     <div class="form-group">
-        <h4>Select Items:</h4>
+        <h4 class="mt-4" style="color: #ff69b4;">Select Items:</h4>
         <div class="row" id="itemContainer">
             @for (int i = 0; i < ViewBag.Items.Count; i++)
             {
             var item = ViewBag.Items[i];
             <div class="col-lg-2 col-md-3 col-sm-4 mb-4">
-                <div class="card shadow-sm p-2 bg-light border border-primary hover-shadow">
+                <div class="card custom-card p-2 bg-light border border-primary hover-shadow">
                     <div class="card-body text-center">
-                        <h5 class="card-title" style="font-size: 1.2rem;">@item.Name</h5> <!-- Larger item name -->
-                        <p class="card-text" style="font-size: 0.8rem;">Price: @item.Price.ToString("C")</p> <!-- Smaller price text -->
+                        <h5 class="card-title" style="font-size: 1.2rem;">@item.Name</h5>
+                        <p class="card-text" style="font-size: 0.9rem; color: #ff1493;">Price: @item.Price.ToString("C")</p>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" name="itemIds" value="@item.Id" id="item-@i" />
                             <label class="form-check-label" for="item-@i">Select Item</label>
@@ -93,16 +93,49 @@ ViewData["Title"] = "Create Order";
 }
 
 <style>
-    .card {
-        transition: transform 0.2s, box-shadow 0.2s; 
+    body {
+        background-color: #f0f8ff;
+        color: #333; 
     }
 
-    .card:hover {
-        transform: translateY(-5px); 
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    h1 {
+        font-size: 2.5rem; 
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+    }
+
+    .custom-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+        background-color: #fff5f8; 
+        border-radius: 15px; 
+        border: 2px solid #ff77a9;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
     }
 
     .hover-shadow {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #ff77a9; 
+        border: none;
+        border-radius: 20px; 
+        font-weight: bold;
+    }
+
+    .btn-primary:hover {
+        background-color: #ff5897; 
+    }
+
+    .form-control {
+        border-radius: 8px; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    }
+
+    .form-check-label {
+        color: #ff69b4; 
     }
 </style>

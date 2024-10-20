@@ -1,29 +1,30 @@
 @model IEnumerable<MyFirstApp.Models.OrderModel>
 
 @{
-    ViewData["Title"] = "Orders";
+ViewData["Title"] = "Orders";
 }
 
 <h1 class="mt-4">Order Details</h1>
+
 <a href="@Url.Action("Create","Orders")"
    class="btn"
    style="display: inline-block; padding: 10px 20px; 
-          background-color: #FFD700; /* Yellow color */
-          color: #070707; /* Text color */
+          background-color: #ff77a9; /* Soft pink color */
+          color: #fff; /* White text */
           border: none; 
           border-radius: 5px; /* Rounded corners */
           text-align: center; 
           text-decoration: none; 
           font-size: 16px; 
           transition: background-color 0.3s, transform 0.3s; /* Transition effect */
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
           cursor: pointer;"
-   onmouseover="this.style.backgroundColor='#FFC300'; this.style.transform='scale(1.05)';"
-   onmouseout="this.style.backgroundColor='#FFD700'; this.style.transform='scale(1)';">
-   Place Order</a>
+   onmouseover="this.style.backgroundColor='#ff5897'; this.style.transform='scale(1.05)';"
+   onmouseout="this.style.backgroundColor='#ff77a9'; this.style.transform='scale(1)';">
+    Place Order</a>
 
-<table class="table table-striped mt-5">
-    <thead>
+<table class="table table-striped mt-5" style="border-radius: 10px; overflow: hidden;">
+    <thead class="thead-light">
     <tr>
         <th>Order ID</th>
         <th>Customer</th>
@@ -35,22 +36,50 @@
     <tbody>
     @foreach (var order in Model)
     {
-        <tr>
-            <td>@order.Id</td>
-            <td>@order.User.Name</td> <!-- Assuming User is a navigation property -->
-            <td>@order.OrderDate.ToString("MM/dd/yyyy")</td>
-            <td>@order.TotalAmount.ToString("C")</td>
-            <td>
-                <ul>
-                    @foreach (var orderItem in order.OrderItems)
-                    {
-                        <li>
-                            @orderItem.Item.Name - Quantity: @orderItem.Quantity, Price: @orderItem.Price.ToString("C")
-                        </li>
-                    }
-                </ul>
-            </td>
-        </tr>
+    <tr>
+        <td>@order.Id</td>
+        <td>@order.User.Name</td> <!-- Assuming User is a navigation property -->
+        <td>@order.OrderDate.ToString("MM/dd/yyyy")</td>
+        <td>@order.TotalAmount.ToString("C")</td>
+        <td>
+            <ul style="list-style-type: none; padding: 0;">
+                @foreach (var orderItem in order.OrderItems)
+                {
+                <li style="background-color: #ffe6f2; border-radius: 5px; padding: 5px; margin-bottom: 5px;">
+                    @orderItem.Item.Name - Quantity: @orderItem.Quantity, Price: @orderItem.Price.ToString("C")
+                </li>
+                }
+            </ul>
+        </td>
+    </tr>
     }
     </tbody>
 </table>
+
+<style>
+    table {
+        border-collapse: separate; 
+        border-spacing: 0 10px; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        background-color: #fff; 
+        border-radius: 10px;
+    }
+
+    th {
+        background-color: #ffe6f2; 
+        color: #ff77a9; 
+        padding: 10px;
+        border-top-left-radius: 10px; 
+        border-top-right-radius: 10px; 
+    }
+
+    td {
+        background-color: #fff;
+        padding: 10px; 
+    }
+
+    tr:hover {
+        background-color: #ffe6f2; 
+        transition: background-color 0.3s; 
+    }
+</style>

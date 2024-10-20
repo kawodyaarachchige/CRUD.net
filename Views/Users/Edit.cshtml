@@ -1,107 +1,7 @@
 @model MyFirstApp.Models.UserModel
 @{
-    Layout = "_Layout"; // Ensure this matches your layout file name
+Layout = "_Layout"; // Ensure this matches your layout file name
 }
-
-<style>
-    body {
-        font-family: 'Comic Sans MS', cursive;
-    }
-
-    h1 {
-        margin-bottom: 20px;
-        color: #333;
-        font-size: 2.5rem;
-        font-weight: 600;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .custom-form {
-        background-color: #fff5f8;
-        padding: 30px;
-        border-radius: 10px;
-        max-width: 500px;
-        margin: auto;
-        border: 2px solid #ff77a9;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .custom-form:hover {
-        transform: scale(1.05); /* Slight zoom on hover */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Elevated shadow on hover */
-    }
-
-    .form-control {
-        border-radius: 10px;
-        padding: 12px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.1rem;
-        border: 2px solid #ffb3c7;
-    }
-
-    .btn-primary, .btn-secondary {
-        border-radius: 50px;
-        padding: 10px 20px;
-        font-family: 'Comic Sans MS', cursive;
-        font-size: 1rem;
-        margin-top: 10px;
-        transition: transform 0.3s ease;
-    }
-
-    .btn-primary:hover, .btn-secondary:hover {
-        transform: scale(1.05); /* Enlarge buttons on hover */
-    }
-
-    .btn-primary {
-        background-color: #ff77a9;
-        border: none;
-    }
-
-    .btn-primary:hover {
-        background-color: #ff5897;
-    }
-
-    .btn-secondary {
-        background-color: #ffc3d6;
-        border: none;
-    }
-
-    .btn-secondary:hover {
-        background-color: #ffb3c7;
-    }
-
-    /* Bubble animation for fun effect */
-    .bubble1, .bubble2, .bubble3 {
-        position: absolute;
-        border-radius: 50%;
-        background-color: #ff77a9;
-        opacity: 0.6;
-        animation: float 4s ease-in-out infinite;
-    }
-
-    .bubble1 {
-        width: 100px;
-        height: 100px;
-        bottom: 10%;
-        left: 10%;
-    }
-
-    .bubble2 {
-        width: 70px;
-        height: 70px;
-        bottom: 15%;
-        left: 50%;
-    }
-
-    .bubble3 {
-        width: 120px;
-        height: 120px;
-        bottom: 5%;
-        left: 80%;
-    }
-
-</style>
 
 <h1 class="text-center">Edit Customer</h1>
 
@@ -131,5 +31,5 @@
 <div class="bubble3"></div>
 
 @section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
