@@ -17,12 +17,20 @@
       "PackagePath": "staticwebassets/images/candy.png"
     },
     {
-      "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/choco.png",
-      "PackagePath": "staticwebassets/images/choco.png"
+      "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/coffe.png",
+      "PackagePath": "staticwebassets/images/coffe.png"
     },
     {
-      "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/kitkat.webp",
-      "PackagePath": "staticwebassets/images/kitkat.webp"
+      "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/cup.png",
+      "PackagePath": "staticwebassets/images/cup.png"
+    },
+    {
+      "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/don.jpg",
+      "PackagePath": "staticwebassets/images/don.jpg"
+    },
+    {
+      "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/shop.jpg",
+      "PackagePath": "staticwebassets/images/shop.jpg"
     },
     {
       "Id": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/js/site.js",

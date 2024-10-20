@@ -20,11 +20,6 @@ builder.Services.AddAuthentication("AdminAuth")
         options.AccessDeniedPath = "/Admin/Login"; // Redirect here if access denied
     });
 
-// Register other necessary services, such as Identity, if applicable
-// builder.Services.AddIdentity<adminModel, IdentityRole>() 
-//     .AddEntityFrameworkStores<AppDbContext>()
-//     .AddDefaultTokenProviders();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,14 +38,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Make sure to call these two in this order
-app.UseAuthentication(); // Enable authentication middleware
-app.UseAuthorization(); // Enable authorization middleware
+app.UseAuthentication();
+app.UseAuthorization(); 
 
-// Update the route to have a default controller and action
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Admin}/{action=Login}/{id?}");
 
-// Run the application
 app.Run();

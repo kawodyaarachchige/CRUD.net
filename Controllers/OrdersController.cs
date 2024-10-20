@@ -37,7 +37,12 @@ namespace MyFirstApp.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder(int userId, List<int> itemIds, List<int> quantities)
         {
-            // Validate input
+            // Debugging: Log the received data
+            Console.WriteLine($"User ID: {userId}");
+            Console.WriteLine($"Item IDs: {string.Join(", ", itemIds)}");
+            Console.WriteLine($"Quantities: {string.Join(", ", quantities)}");
+
+      
             if (itemIds == null || quantities == null || itemIds.Count == 0 || quantities.Count == 0)
             {
                 ModelState.AddModelError("", "Please select at least one item.");
@@ -82,17 +87,19 @@ namespace MyFirstApp.Controllers
                 ModelState.AddModelError("", "No valid items were selected.");
                 return View();
             }
-            
+    
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync(); 
-            
+    
             foreach (var orderItem in order.OrderItems)
             {
                 orderItem.OrderId = order.Id; 
                 await _context.OrderItems.AddAsync(orderItem); 
             }
-            
+    
             return RedirectToAction("Index");
         }
+
+
     }
 }

@@ -4,10 +4,25 @@
     ViewData["Title"] = "Orders";
 }
 
-<h2>Orders</h2>
-<a href="@Url.Action("Create","Orders")" class="btn btn-primary mb-2">Place Order</a>
+<h1 class="mt-4">Order Details</h1>
+<a href="@Url.Action("Create","Orders")"
+   class="btn"
+   style="display: inline-block; padding: 10px 20px; 
+          background-color: #FFD700; /* Yellow color */
+          color: #070707; /* Text color */
+          border: none; 
+          border-radius: 5px; /* Rounded corners */
+          text-align: center; 
+          text-decoration: none; 
+          font-size: 16px; 
+          transition: background-color 0.3s, transform 0.3s; /* Transition effect */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+          cursor: pointer;"
+   onmouseover="this.style.backgroundColor='#FFC300'; this.style.transform='scale(1.05)';"
+   onmouseout="this.style.backgroundColor='#FFD700'; this.style.transform='scale(1)';">
+   Place Order</a>
 
-<table class="table table-striped">
+<table class="table table-striped mt-5">
     <thead>
     <tr>
         <th>Order ID</th>

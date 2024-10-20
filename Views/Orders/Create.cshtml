@@ -6,7 +6,7 @@ ViewData["Title"] = "Create Order";
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-<h2 class="text-center mb-4">Create Order</h2>
+<h1 class=" mb-4">Create Order</h1>
 
 <form asp-action="CreateOrder" method="post">
     <div class="form-group">
@@ -30,7 +30,7 @@ ViewData["Title"] = "Create Order";
             @for (int i = 0; i < ViewBag.Items.Count; i++)
             {
             var item = ViewBag.Items[i];
-            <div class="col-md-3 col-sm-6 mb-3"> <!-- Changed to 4 cards per row -->
+            <div class="col-lg-2 col-md-3 col-sm-4 mb-4">
                 <div class="card shadow-sm p-2 bg-light border border-primary hover-shadow">
                     <div class="card-body text-center">
                         <h5 class="card-title" style="font-size: 1.2rem;">@item.Name</h5> <!-- Larger item name -->
@@ -94,15 +94,15 @@ ViewData["Title"] = "Create Order";
 
 <style>
     .card {
-        transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+        transition: transform 0.2s, box-shadow 0.2s; 
     }
 
     .card:hover {
-        transform: translateY(-5px); /* Lift effect on hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        transform: translateY(-5px); 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     }
 
     .hover-shadow {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 </style>

@@ -1,57 +1,149 @@
-@model MyFirstApp.Models.DashboardViewModel
 <style>
     * {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        background-image: url("images/shop.jpg");
+        background-size: cover;
+        background-position: center;
     }
+
     body {
-        font-family: 'Arial', sans-serif; 
-        background-color: #f4f4f4;
-        color: #333; 
+
+        overflow-x: hidden; /* Prevents horizontal scroll */
     }
+    
     .custom-card {
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ffecf3, #f7d6e0);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        height: 260px;
+        width: 350px;
+        position: relative;
     }
+
     .custom-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transform: scale(1.08); /* More playful scaling */
+        box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2);
     }
+
     .btn-primary {
-        border-radius: 20px; 
+        border-radius: 50px; /* Rounded buttons */
+        background-color: #ff77a9;
+        border: none;
+        padding: 10px 20px;
         transition: background-color 0.3s, transform 0.3s;
     }
-    .btn-primary:hover {
-        background-color: #007bff;
-        transform: translateY(-2px); 
+    p{
+        font-size: 1rem;
     }
+
+    .btn-primary:hover {
+        background-color: #ff8abf;
+        transform: translateY(-2px);
+    }
+
+    /* Rounded titles and text */
+    .card-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #070707;
+    }
+
+    .card-text {
+        font-size: 2.5rem;
+        color: rgba(239, 211, 218, 0.95);
+    }
+
+    /* Larger and round images */
+    .card-img-top {
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-top: -50px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .shape {
+        position: absolute;
+        background-color: rgba(212, 154, 209, 0.57);
+        border-radius: 50%;
+    }
+
+    .circle {
+        width: 80px;
+        height: 80px;
+        top: -20px;
+        right: -40px;
+    }
+
+    .small-circle {
+        width: 50px;
+        height: 50px;
+        bottom: -10px;
+        left: -30px;
+    }
+    .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(254, 201, 110, 0.71);
+        animation: float 6s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    .bubble1 {
+        width: 100px;
+        height: 100px;
+        top: 50px;
+        left: 10%;
+    }
+
+    .bubble2 {
+        width: 150px;
+        height: 150px;
+        top: 250px;
+        left: 70%;
+    }
+
+    .bubble3 {
+        width: 120px;
+        height: 120px;
+        top: 500px;
+        left: 30%;
+    }
+    
 </style>
 
-<div class="container mt-4 position-relative" style="padding: 10px">
-    <!-- Dashboard Cards -->
-    <div class="row justify-content-center mb-4">
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card text-white bg-info custom-card shadow">
-                <div class="card-body text-center">
+<div class="container mt-5 position-relative" style="padding: 10px">
+    <!-- Count Cards -->
+    <div class="row justify-content-center mb-4" style="margin-top: 50px;">
+        <div class="col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+            <div class="card custom-card shadow" style="background: #E2A3CF">
+                <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
                     <i class="fas fa-users fa-2x mb-2"></i>
                     <h5 class="card-title">Customers Count</h5>
                     <p class="card-text display-4">@Model.CustomerCount</p>
+                    <div class="shape circle"></div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card text-white bg-success custom-card shadow">
-                <div class="card-body text-center">
+        <div class="col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+            <div class="card custom-card shadow" style="background: #C0B7F0;">
+                <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
                     <i class="fas fa-candy-cane fa-2x mb-2"></i>
                     <h5 class="card-title">Items Count</h5>
                     <p class="card-text display-4">@Model.ItemCount</p>
+                    <div class="shape small-circle"></div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card text-white bg-warning custom-card shadow">
-                <div class="card-body text-center">
+        <div class="col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+            <div class="card custom-card shadow" style="background: #72C9E2">
+                <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
                     <i class="fas fa-shopping-cart fa-2x mb-2"></i>
                     <h5 class="card-title">Orders Count</h5>
                     <p class="card-text display-4">@Model.OrderCount</p>
@@ -59,20 +151,47 @@
             </div>
         </div>
     </div>
-    <h2 class="text-center mb-4">Most Sold Items</h2>
-    <div class="row justify-content-center">
-        @for (int i = 1; i <= 3; i++)
-        {
-        <div class="col-md-4 mb-4">
-            <div class="card shadow">
-                <img src="~/images/choco.png" class="card-img-top" alt="Most Sold Item @i" style="height: 150px; object-fit: cover;">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Item Name @i</h5>
-                    <p class="card-text">Delicious chocolate treat.</p>
-                    <a href="#" class="btn btn-primary">View Details</a>
+    
+    <h2 class="text-start mb-4">Most Sold Items</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card custom-card shadow">
+                    <img src="~/images/coffe.png" class="card-img-top" alt="Most Sold Item">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Chocolate</h5>
+                        <p>Delicious chocolate treat.</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card custom-card shadow">
+                    <img src="~/images/cup.png" class="card-img-top" alt="Most Sold Item">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Jelly Beans</h5>
+                        <p>Irresistibly fruity candy delight.</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card custom-card shadow">
+                    <img src="~/images/don.jpg" class="card-img-top" alt="Most Sold Item">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Cake</h5>
+                        <p>Best Birthday cake.</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
                 </div>
             </div>
         </div>
-        }
     </div>
+
+    <!-- Floating Bubbles -->
+    <div class="bubble bubble1"></div>
+    <div class="bubble bubble2"></div>
+    <div class="bubble bubble3"></div>
 </div>

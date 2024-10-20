@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "y/w74VpmIoZjboDbuKQAdY4IZZXPxbh9p6Phs1Tf1XY=",
+  "Hash": "pXx8qusvGCdgN7UvLEPVTnh23R8lHFn40eWy1dxfmEg=",
   "Source": "MyFirstApp",
   "BasePath": "_content/MyFirstApp",
   "Mode": "Default",
@@ -1252,12 +1252,12 @@
       "OriginalItemSpec": "wwwroot/images/candy.png"
     },
     {
-      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/choco.png",
+      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/coffe.png",
       "SourceId": "MyFirstApp",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/",
       "BasePath": "_content/MyFirstApp",
-      "RelativePath": "images/choco.png",
+      "RelativePath": "images/coffe.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1268,15 +1268,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/choco.png"
+      "OriginalItemSpec": "wwwroot/images/coffe.png"
     },
     {
-      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/kitkat.webp",
+      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/cup.png",
       "SourceId": "MyFirstApp",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/",
       "BasePath": "_content/MyFirstApp",
-      "RelativePath": "images/kitkat.webp",
+      "RelativePath": "images/cup.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1287,7 +1287,45 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/kitkat.webp"
+      "OriginalItemSpec": "wwwroot/images/cup.png"
+    },
+    {
+      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/don.jpg",
+      "SourceId": "MyFirstApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/",
+      "BasePath": "_content/MyFirstApp",
+      "RelativePath": "images/don.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/don.jpg"
+    },
+    {
+      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/shop.jpg",
+      "SourceId": "MyFirstApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/",
+      "BasePath": "_content/MyFirstApp",
+      "RelativePath": "images/shop.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/shop.jpg"
     },
     {
       "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/js/site.js",

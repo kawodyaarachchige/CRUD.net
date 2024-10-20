@@ -21,7 +21,7 @@ namespace MyFirstApp.Controllers
         
         public IActionResult SignUp()
         {
-            return View();
+            return View("Login");
         }
         
         [HttpPost]
