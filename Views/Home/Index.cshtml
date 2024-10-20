@@ -10,9 +10,8 @@
 
     body {
 
-        overflow-x: hidden; /* Prevents horizontal scroll */
+        overflow-x: hidden;
     }
-    
     .custom-card {
         transition: transform 0.3s, box-shadow 0.3s;
         border-radius: 30px;
@@ -35,7 +34,8 @@
         padding: 10px 20px;
         transition: background-color 0.3s, transform 0.3s;
     }
-    p{
+
+    p {
         font-size: 1rem;
     }
 
@@ -43,8 +43,7 @@
         background-color: #ff8abf;
         transform: translateY(-2px);
     }
-
-    /* Rounded titles and text */
+    
     .card-title {
         font-size: 1.3rem;
         font-weight: bold;
@@ -55,8 +54,7 @@
         font-size: 2.5rem;
         color: rgba(239, 211, 218, 0.95);
     }
-
-    /* Larger and round images */
+    
     .card-img-top {
         height: 180px;
         object-fit: cover;
@@ -67,7 +65,7 @@
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .shape {
         position: absolute;
         background-color: rgba(212, 154, 209, 0.57);
@@ -87,6 +85,7 @@
         bottom: -10px;
         left: -30px;
     }
+
     .bubble {
         position: absolute;
         border-radius: 50%;
@@ -115,10 +114,26 @@
         top: 500px;
         left: 30%;
     }
-    
+
+    #datetime {
+        background-color: rgba(255, 255, 255, 0.8); /* Light white background */
+        border-radius: 15px; /* Rounded corners */
+        padding: 15px; /* Padding for spacing */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        transition: transform 0.3s; /* Smooth hover effect */
+    }
+
+    #datetime:hover {
+        transform: scale(1.05); /* Slightly enlarge on hover */
+    }
 </style>
 
 <div class="container mt-5 position-relative" style="padding: 10px">
+    <!-- Date and Time Section -->
+    <div class="text-center mb-4" id="datetime">
+        <h4 class="m-0" style="color: #ff77a9;">WELCOME CANDY LAND</h4>
+        <p class="m-0" id="currentTime" style="font-size: 1.5rem; color: #070707;"></p>
+    </div>
     <!-- Count Cards -->
     <div class="row justify-content-center mb-4" style="margin-top: 50px;">
         <div class="col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
@@ -159,8 +174,8 @@
                 <div class="card custom-card shadow">
                     <img src="~/images/coffe.png" class="card-img-top" alt="Most Sold Item">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Chocolate</h5>
-                        <p>Delicious chocolate treat.</p>
+                        <h5 class="card-title">Kitty Late</h5>
+                        <p>Delicious chocolate treat with Coffee.</p>
                         <a href="#" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
@@ -170,7 +185,7 @@
                 <div class="card custom-card shadow">
                     <img src="~/images/cup.png" class="card-img-top" alt="Most Sold Item">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Jelly Beans</h5>
+                        <h5 class="card-title">Cup Cake</h5>
                         <p>Irresistibly fruity candy delight.</p>
                         <a href="#" class="btn btn-primary">View Details</a>
                     </div>
@@ -181,17 +196,30 @@
                 <div class="card custom-card shadow">
                     <img src="~/images/don.jpg" class="card-img-top" alt="Most Sold Item">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Cake</h5>
-                        <p>Best Birthday cake.</p>
+                        <h5 class="card-title">Doughnut</h5>
+                        <p>Delicious doughnut delight with a burst of flavor</p>
                         <a href="#" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Floating Bubbles -->
     <div class="bubble bubble1"></div>
     <div class="bubble bubble2"></div>
     <div class="bubble bubble3"></div>
 </div>
+@section Scripts {
+    <script>
+    function updateTime() {
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        const dateString = now.toLocaleDateString(undefined, options);
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        document.getElementById('currentTime').textContent = `${dateString}, ${timeString}`;
+    }
+
+    setInterval(updateTime, 1000); 
+    updateTime(); 
+</script>}
+
