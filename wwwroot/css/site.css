@@ -12,6 +12,7 @@ h1 {
 .custom-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 10px;
+  height: 100px;
 }
 
 .custom-card:hover {
@@ -104,6 +105,7 @@ h1 {
   background-color: #ffb3c7;
 }
 
+
 /* Bubble animation */
 .bubble1, .bubble2, .bubble3 {
   position: absolute;
@@ -144,4 +146,8 @@ h1 {
   100% {
     transform: translateY(0);
   }
+}
+i{
+  color:#ff77a9;
+  margin-right: 8px;
 }

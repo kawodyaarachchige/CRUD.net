@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Candy land</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <style>
@@ -44,30 +45,30 @@
         <ul class="navbar-nav ml-auto">
             @if (User.Identity.IsAuthenticated) // Check if the user is logged in
             {
-            <li class="nav-item active">
-                <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "Users")">Customers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "Items")">Items</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "Orders")">Orders</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Logout", "Admin")">Logout</a>
-            </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Users")">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Items")">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Orders")">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Logout", "Admin")">Logout</a>
+                </li>
             }
             else
             {
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Login", "Admin")">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("SignUp", "Admin")">Sign Up</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Login", "Admin")">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("SignUp", "Admin")">Sign Up</a>
+                </li>
             }
         </ul>
     </div>
@@ -84,4 +85,11 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
+<footer style= "background: linear-gradient(90deg, #FFD700, #FFB6C1,#FF69B4); padding: 20px; text-align: center; color: #FFFFFF; box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); 
+               position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000;">
+    <div style="font-size: 18px; font-weight: bold;">
+        &copy; 2024 Tharu Candy Land. All Rights Reserved.
+    </div>
+</footer>
+
 </html>

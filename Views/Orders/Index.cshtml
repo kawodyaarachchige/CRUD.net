@@ -6,7 +6,7 @@ ViewData["Title"] = "Orders";
 
 <h1 class="mt-4">Order Details</h1>
 
-<a href="@Url.Action("Create","Orders")"
+<a href="@Url.Action("Create", "Orders")"
    class="btn"
    style="display: inline-block; padding: 10px 20px; 
           background-color: #ff77a9; /* Soft pink color */
@@ -21,9 +21,11 @@ ViewData["Title"] = "Orders";
           cursor: pointer;"
    onmouseover="this.style.backgroundColor='#ff5897'; this.style.transform='scale(1.05)';"
    onmouseout="this.style.backgroundColor='#ff77a9'; this.style.transform='scale(1)';">
-    Place Order</a>
+    <i class="fas fa-shopping-cart" style="color: yellow"></i>
+    Place Order
+</a>
 
-<table class="table table-striped mt-5" style="border-radius: 10px; overflow: hidden;">
+<table class="table table-striped mt-3" style="border-radius: 10px; overflow: hidden;">
     <thead class="thead-light">
     <tr>
         <th>Order ID</th>

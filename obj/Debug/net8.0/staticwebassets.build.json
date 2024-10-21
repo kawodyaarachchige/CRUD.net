@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pXx8qusvGCdgN7UvLEPVTnh23R8lHFn40eWy1dxfmEg=",
+  "Hash": "T1XUc4AAd52tEYMolJhz67a2js9bYFnKiuUH/fPiCs4=",
   "Source": "MyFirstApp",
   "BasePath": "_content/MyFirstApp",
   "Mode": "Default",
@@ -1290,12 +1290,12 @@
       "OriginalItemSpec": "wwwroot/images/cup.png"
     },
     {
-      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/don.jpg",
+      "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/don.png",
       "SourceId": "MyFirstApp",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/",
       "BasePath": "_content/MyFirstApp",
-      "RelativePath": "images/don.jpg",
+      "RelativePath": "images/don.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,7 +1306,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/don.jpg"
+      "OriginalItemSpec": "wwwroot/images/don.png"
     },
     {
       "Identity": "/Users/tharushikawodya/Developer/rider projects/new one/WebApplication1/MyFirstApp/wwwroot/images/shop.jpg",
