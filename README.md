@@ -28,19 +28,26 @@ Candy Shop POS is a point of sale application designed specifically for candy sh
 - **Rider**: The IDE used for development.
 
 ### Login Page
-![Login Page](https://imgur.com/gfUQOLD.png)
+![Login Page](https://imgur.com/cOnhu71.png)
 ### SignUp Page
-![Signup Page](https://imgur.com/ZK1B4Wb.png)
+![Signup Page](https://imgur.com/FL5NQj7.png)
 ### Dashboard
-![Dashboard](https://imgur.com/Y0aKhcg.png)
+![Dashboard](https://imgur.com/yrpg08E.png)
 ### Customer Management
-![Customer Management](https://imgur.com/lPciPiJ.png)
+![Customer Management](https://imgur.com/VwhyIO1.png)
+![Customer Management](https://imgur.com/T0AnWFT.png)
+![Customer Management](https://imgur.com/UTNDdrL.png)
+![Customer Management](https://imgur.com/xHayoOq.png)
 ### Item Management
-![Item Management](https://imgur.com/GXkXkAk.png)
+![Item Management](https://imgur.com/TYj2bx9.png)
+![Item Management](https://imgur.com/WHHTwze.png)
+![Item Management](https://imgur.com/hj9mNSv.png)
+![Item Management](https://imgur.com/iaIimme.png)
+
 ### Order Details
-![Order Details](https://imgur.com/5tGIb0K.png)
+![Order Details](https://imgur.com/olNdxfn.png)
 ### Order Placement
-![Order Placement](https://imgur.com/JDqgnOj.png)
+![Order Placement](https://imgur.com/yv1Er7M.png)
 
 ### License
 
